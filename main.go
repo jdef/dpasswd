@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/rand"
 	"flag"
 	"fmt"
@@ -27,7 +28,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		key = b
+		key = bytes.TrimRight(b, "\r\n")
 	}
 
 	c := crypt.New()
